@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .calculator-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        button {
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #495057;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h2>Calculadora JS</h2>
+    
+    <input type="number" id="num1" placeholder="Digite o primeiro número">
+    <input type="number" id="num2" placeholder="Digite o segundo número">
+    
+    <div class="buttons-grid">
+        <button onclick="calcular('soma')">+</button>
+        <button onclick="calcular('subtracao')">-</button>
+        <button onclick="calcular('multiplicacao')">×</button>
+        <button onclick="calcular('divisao')">÷</button>
+    </div>
+    
+    <div class="result-box" id="resultado">Resultado aparecerá aqui</div>
+</div>
+
+<script>
+    function calcular(operacao) {
+        const n1 = parseFloat(document.getElementById('num1').value);
+        const n2 = parseFloat(document.getElementById('num2').value);
+        const campoResultado = document.getElementById('resultado');
+
+        if (isNaN(n1) || !isNaN(n2) === false) {
+            campoResultado.textContent = "Por favor, digite os dois números.";
+            campoResultado.style.color = "#dc3545";
+            return;
+        }
+
+        let resultado;
+        campoResultado.style.color = "#495057";
+
+        switch (operacao) {
+            case 'soma':
+                resultado = n1 + n2;
+                campoResultado.textContent = `Resultado: ${resultado}`;
+                break;
+            case 'subtracao':
+                resultado = n1 - n2;
+                campoResultado.textContent = `Resultado: ${resultado}`;
+                break;
+            case 'multiplicacao':
+                resultado = n1 * n2;
+                campoResultado.textContent = `Resultado: ${resultado}`;
+                break;
+            case 'divisao':
+                if (n2 === 0) {
+                    campoResultado.textContent = "Erro: Não é possível dividir por 0.";
+                    campoResultado.style.color = "#dc3545";
+                } else {
+                    resultado = n1 / n2;
+                    campoResultado.textContent = `Resultado: ${resultado}`;
+                }
+                break;
+            default:
+                campoResultado.textContent = "Operação inválida.";
+        }
+    }
+</script>
+
+</body>
+</html>
