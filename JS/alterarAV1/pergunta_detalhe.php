@@ -1,4 +1,4 @@
-<?php
+<?php 
 require_once 'config.php';
 $id = $_GET['id'] ?? null;
 $p = buscarPorId($id);
