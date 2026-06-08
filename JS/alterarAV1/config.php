@@ -33,4 +33,4 @@ function salvarUsuarios($usuarios) {
     global $arquivoUsuarios;
     file_put_contents($arquivoUsuarios, json_encode(array_values($usuarios), JSON_PRETTY_PRINT));
 }
-?>
+?> 
