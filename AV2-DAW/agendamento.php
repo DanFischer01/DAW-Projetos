@@ -5,13 +5,34 @@
     <meta charset="UTF-8">
     <title>Sistema de Reserva - Beleza Feminina</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; }
-        .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f9f9f9; 
+            min-height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .container { 
+            width: 100%; 
+            max-width: 600px;
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+
         .campo { margin-bottom: 15px; }
         label { display: block; font-weight: bold; margin-bottom: 5px; }
-        select, input { width: 100%; padding: 8px; box-sizing: border-box; }
-        button { background-color: #ff4081; color: white; border: none; padding: 10px 15px; width: 100%; cursor: pointer; font-size: 16px; }
+        select, input { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #ff4081; color: white; border: none; padding: 12px 15px; width: 100%; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px; margin-top: 10px; transition: background-color 0.3s; }
         button:hover { background-color: #e91e63; }
+        h2, h3 { text-align: center; color: #333; } 
+        hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
     </style>
 </head>
 <body>
@@ -65,7 +86,7 @@
         <div class="campo">
             <label>Validade:</label>
             <input type="text" id="validade" placeholder="MM/AA" style="width: 45%;" required>
-            <label style="display:inline-block; width: 8%;">CVV:</label>
+            <label style="display:inline-block; width: 8%; text-align: center;">CVV:</label>
             <input type="text" id="cvv" placeholder="000" style="width: 43%;" required>
         </div>
 
