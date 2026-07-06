@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem-vindo ao Beleza Feminina</title>
     <style>
-        /* Remove margens e centraliza TODO o conteúdo da página */
         body, html {
             margin: 0;
             padding: 0;
@@ -16,7 +15,6 @@
             align-items: center;
         }
 
-        /* Container que segura o fundo (Imagem) */
         .fundo {
             background-image: url('fundo-salao.jpg');
             background-size: cover;
@@ -26,17 +24,17 @@
             position: absolute;
             top: 0;
             left: 0;
-            filter: blur(5px); /* Desfoque aplicado no fundo */
-            z-index: -1; /* Mantém a imagem atrás do botão */
+            filter: blur(5px); 
+            z-index: -1;
         }
 
         /* Estilo do Botão */
         .container-botao {
-            z-index: 1; /* Mantém o botão na frente da imagem */
+            z-index: 1;
         }
 
         .botao-acessar {
-            background-color: #ff4081; /* Tom de rosa */
+            background-color: #ff4081; 
             color: white;
             padding: 20px 50px;
             text-decoration: none;
