@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql_inserir) === TRUE) {
         echo "<html lang='pt-br'><head><meta charset='UTF-8'></head><body>";
-        echo "<script>alert('Reserva concluída e paga com sucesso!'); window.location.href='index.php';</script>";
+        echo "<script>alert('Reserva concluída e paga com sucesso!'); window.location.href='agendamento.php';</script>";        
         echo "</body></html>";
     } else {
         echo "Erro: " . $sql_inserir . "<br>" . $conn->error;
