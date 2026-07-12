@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPTOTec Beauty | Especialistas em Você</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header-principal">
+        <div class="container navbar">
+            <h1 class="logo">XPTOTec <span>Beauty</span></h1>
+            <nav class="nav-links">
+                <a href="#servicos">Serviços</a>
+                <a href="reserva.html" class="link-destaque">Agendar Horário</a>
+                
+                <a href="login.html" id="btn-login">Entrar / Cadastrar</a>
+                
+                <a href="painel_cliente.html" id="link-painel" class="hidden">Minha Conta</a>
+                <a href="#" id="btn-sair" class="hidden" onclick="deslogar()">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h2>A Arte de Cuidar de Você</h2>
+                <p>Salão de beleza e centro de estética de alto padrão. Descubra a sua melhor versão com nossos profissionais.</p>
+                <a href="reserva.html" class="btn-primario">Reserve seu Momento</a>
+            </div>
+        </section>
+
+        <section id="servicos" class="secao-servicos container">
+            <div class="cabecalho-secao">
+                <h2>Nossas Especialidades</h2>
+                <p>Escolha o serviço perfeito para a sua necessidade.</p>
+            </div>
+            
+            <div class="grid-categorias">
+                <div class="categoria-bloco">
+                    <h3 class="categoria-titulo">Salão de Beleza</h3>
+                    <div id="lista-salaon" class="lista-servicos-clean">
+                        <p class="carregando">Carregando serviços...</p>
+                    </div>
+                </div>
+                
+                <div class="categoria-bloco">
+                    <h3 class="categoria-titulo">Centro de Estética</h3>
+                    <div id="lista-estetica" class="lista-servicos-clean">
+                        <p class="carregando">Carregando serviços...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 XPTOTec Beauty. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

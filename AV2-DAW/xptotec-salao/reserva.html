@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - XPTOTec Beauty</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-clean">
+
+    <div class="container-reserva-clean">
+        <div class="reserva-box-clean">
+            <h2 class="auth-titulo-clean">Agende seu Horário</h2>
+            <p class="auth-subtitulo-clean">Escolha o serviço desejado e o profissional de sua preferência.</p>
+            
+            <div id="mensagem-reserva" class="hidden"></div>
+
+            <form id="form-reserva">
+                <div class="input-group-clean">
+                    <label for="reserva-servico">Serviço</label>
+                    <select id="reserva-servico" required>
+                        <option value="" disabled selected>Carregando serviços...</option>
+                    </select>
+                </div>
+
+                <div class="input-group-clean">
+                    <label for="reserva-profissional">Profissional</label>
+                    <select id="reserva-profissional" required disabled>
+                        <option value="" disabled selected>Selecione um serviço primeiro...</option>
+                    </select>
+                </div>
+
+                <div class="input-grid-duplo">
+                    <div class="input-group-clean">
+                        <label for="reserva-data">Data</label>
+                        <input type="date" id="reserva-data" required disabled>
+                    </div>
+                    <div class="input-group-clean">
+                        <label for="reserva-hora">Horário</label>
+                        <select id="reserva-hora" required disabled>
+                            <option value="" disabled selected>Selecione a data...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <fieldset class="checkout-box-clean">
+                    <legend>Informações de Pagamento (Garantia de Reserva)</legend>
+                    <div class="input-group-clean">
+                        <label for="cartao-numero">Número do Cartão</label>
+                        <input type="text" id="cartao-numero" placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="input-grid-duplo">
+                        <div class="input-group-clean">
+                            <label for="cartao-validade">Validade</label>
+                            <input type="text" id="cartao-validade" placeholder="MM/AA" required>
+                        </div>
+                        <div class="input-group-clean">
+                            <label for="cartao-cvv">CVV</label>
+                            <input type="text" id="cartao-cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn-clean btn-bloco">Confirmar Agendamento</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px;"><a href="index.html">Cancelar e Voltar</a></p>
+        </div>
+    </div>
+
+    <!-- Referência única ao arquivo externo -->
+    <script src="js/reserva.js"></script>
+</body>
+</html>

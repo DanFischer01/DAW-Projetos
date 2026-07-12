@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - XPTOTec Beauty</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-clean">
+
+    <div id="tela-login-admin" class="container-auth-clean">
+        <div class="auth-box-clean">
+            <h2 class="auth-titulo-clean">Acesso Restrito</h2>
+            <p class="auth-subtitulo-clean">Insira suas credenciais administrativas.</p>
+            
+            <div id="msg-login-admin" class="hidden"></div>
+            
+            <form id="form-login-admin">
+                <div class="input-group-clean">
+                    <label for="admin-email">E-mail Corporativo</label>
+                    <input type="email" id="admin-email" placeholder="admin@xptotec.com" required>
+                </div>
+                <div class="input-group-clean">
+                    <label for="admin-senha">Senha</label>
+                    <input type="password" id="admin-senha" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-clean btn-bloco">Entrar no Painel</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="tela-dashboard-admin" class="container-admin hidden">
+        <aside class="sidebar-admin">
+            <div class="sidebar-topo">
+                <h3>XPTOTec Admin</h3>
+                <p>Painel de Controle</p>
+            </div>
+            <nav class="menu-admin">
+                <button onclick="mostrarAba('aba-servicos')" class="btn-menu">💼 Gerenciar Serviços</button>
+                <button onclick="mostrarAba('aba-funcionarios')" class="btn-menu">👥 Funcionários</button>
+                <button onclick="mostrarAba('aba-avaliacoes')" class="btn-menu">⭐ Ver Avaliações</button>
+                <button onclick="mostrarAba('aba-agendamentos')" class="btn-menu">📅 Agendamentos</button>
+                <button onclick="deslogarAdmin()" class="btn-menu btn-sair">🚪 Sair</button>
+            </nav>
+        </aside>
+
+        <main class="conteudo-admin">
+            <div id="msg-admin" class="hidden"></div>
+
+            <section id="aba-servicos" class="aba-conteudo">
+                <h2>Cadastrar Novo Serviço</h2>
+                <p class="descricao-aba">Adicione novos procedimentos ao catálogo do salão.</p>
+                
+                <form id="form-servico" class="form-admin-clean">
+                    <div class="input-group">
+                        <input type="text" id="serv-nome" placeholder="Nome do Serviço (ex: Corte de Cabelo)" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="serv-descricao" placeholder="Descrição do que está incluso no serviço..." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <select id="serv-categoria" required>
+                            <option value="" disabled selected>Selecione a Categoria</option>
+                            <option value="Salão de Beleza">Salão de Beleza</option>
+                            <option value="Centro de Estética">Centro de Estética</option>
+                        </select>
+                    </div>
+
+                    <div class="input-grid-duplo">
+                        <div class="input-group">
+                            <input type="number" id="serv-duracao" placeholder="Duração (minutos)" min="10" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" id="serv-preco" placeholder="Preço (R$)" step="0.01" min="0" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-clean">Salvar Serviço</button>
+                </form>
+
+                <!-- Div onde a tabela do JS será renderizada -->
+                <div id="lista-servicos-admin" style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;"></div>
+            </section>
+
+            <section id="aba-funcionarios" class="aba-conteudo hidden">
+                <h2>Cadastrar Profissional</h2>
+                <p class="descricao-aba">Insira novos especialistas na equipe.</p>
+                
+                <form id="form-funcionario" class="form-admin-clean">
+                    <div class="input-group">
+                        <input type="text" id="func-nome" placeholder="Nome do Profissional" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="func-especialidade" placeholder="Especialidade (ex: Estética, Manicure)" required>
+                    </div>
+                    <button type="submit" class="btn-clean">Cadastrar Membro</button>
+                </form>
+            </section>
+
+            <section id="aba-avaliacoes" class="aba-conteudo hidden">
+                <h2>Avaliações dos Clientes</h2>
+                <p class="descricao-aba">Abaixo estão os depoimentos e notas deixadas pelos clientes após o checkout.</p>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-clean">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Atendimento</th>
+                                <th>Nota</th>
+                                <th>Comentário</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-avaliacoes">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="aba-agendamentos" class="aba-conteudo hidden">
+                <h2>Gerenciamento de Agendamentos</h2>
+                <p class="descricao-aba">Abaixo estão listados todos os horários solicitados. Você pode acompanhar o status e efetuar cancelamentos administrativos.</p>
+                
+                <div class="tabela-responsiva">
+                    <table class="tabela-clean" style="width:100%; border-collapse: collapse; margin-top:15px;">
+                        <thead>
+                            <tr style="background:#f4f4f4; text-align:left;">
+                                <th style="padding:10px;">ID</th>
+                                <th>Cliente</th>
+                                <th>Serviço</th>
+                                <th>Profissional</th>
+                                <th>Data / Hora</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-agendamentos-corpo">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

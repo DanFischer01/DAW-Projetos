@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Painel - XPTOTec</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>XPTOTec Beauty</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="reserva.html">Novo Agendamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="painel-section">
+            <h2>Meus Agendamentos</h2>
+            <div id="msg-painel" class="mensagem"></div>
+            
+            <div id="lista-agendamentos" class="grid-servicos">
+                <p>Carregando seus agendamentos...</p>
+            </div>
+        </section>
+
+        <section id="area-avaliacao" class="painel-box hidden">
+            <h3>Avaliar Atendimento</h3>
+            <form id="form-avaliacao">
+                <input type="hidden" id="aval-agendamento-id">
+                <select id="aval-nota" required>
+                    <option value="">Selecione uma nota...</option>
+                    <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
+                    <option value="4">⭐⭐⭐⭐ - Muito Bom</option>
+                    <option value="3">⭐⭐⭐ - Bom</option>
+                    <option value="2">⭐⭐ - Ruim</option>
+                    <option value="1">⭐ - Péssimo</option>
+                </select>
+                <textarea id="aval-comentario" placeholder="Deixe um comentário (opcional)" rows="4"></textarea>
+                <button type="submit">Enviar Avaliação</button>
+                <button type="button" onclick="fecharAvaliacao()" style="background:#666; margin-top:10px;">Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/painel.js"></script>
+</body>
+</html>

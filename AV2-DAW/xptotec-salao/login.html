@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - XPTOTec Beauty</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--cor-bg);
+        }
+        .login-box {
+            background: #FFF;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+        .link-admin-discreto {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cor-borda);
+            font-size: 12px;
+        }
+        .link-admin-discreto a {
+            color: var(--cor-texto-claro);
+        }
+        .link-admin-discreto a:hover {
+            color: var(--cor-texto);
+        }
+    </style>
+</head>
+<body class="login-page">
+
+    <div class="login-box">
+        <div class="modal-header">
+            <h2>XPTOTec <span>Beauty</span></h2>
+            <h3 id="form-titulo" style="margin-top: 20px;">Bem-vinda de volta</h3>
+            <p id="form-subtitulo">Faça login para gerenciar seus horários.</p>
+        </div>
+
+        <div id="auth-mensagem" class="mensagem hidden"></div>
+
+        <form id="form-login" class="form-clean">
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" id="login-email" required>
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="login-senha" required>
+            </div>
+            <button type="submit" class="btn-primario total-width">Entrar</button>
+            
+            <p class="texto-alternativo">Novo por aqui? <a href="#" onclick="trocarAba('cadastro')">Crie sua conta</a></p>
+            <p class="texto-alternativo" style="margin-top: 10px;"><a href="index.html">← Voltar para a Home</a></p>
+        </form>
+
+        <form id="form-cadastro" class="form-clean hidden">
+            <div class="input-group">
+                <label>Nome Completo</label>
+                <input type="text" id="cad-nome" required>
+            </div>
+            <div class="input-group">
+                <label>E-mail</label>
+                <input type="email" id="cad-email" required>
+            </div>
+            <div class="input-group">
+                <label>Celular (Opcional)</label>
+                <input type="tel" id="cad-telefone">
+            </div>
+            <div class="input-group">
+                <label>Crie uma Senha</label>
+                <input type="password" id="cad-senha" required>
+            </div>
+            <button type="submit" class="btn-primario total-width">Cadastrar</button>
+            <p class="texto-alternativo">Já tem conta? <a href="#" onclick="trocarAba('login')">Faça login</a></p>
+        </form>
+
+        <div class="link-admin-discreto">
+            <a href="admin.html">Acesso Restrito (Colaboradores)</a>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
